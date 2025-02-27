@@ -2,6 +2,7 @@ import { EstoqueVeiculos } from './classes/EstoqueVeiculos';
 import { GerenciadorVeiculos } from "./classes/GerenciadorVeiculos";
 import { Carro } from "./interfaces/Carro";
 import { Moto } from "./interfaces/Moto";
+import { FiltraVeiculos } from './utils/FiltrarVeiculos';
 
 const meuCarro: Carro = {
     marca: "Honda",
@@ -14,7 +15,7 @@ const meuCarro: Carro = {
 const outroCarro: Carro = {
     marca: "Toyota",
     modelo: "Corolla",
-    ano: 2020,
+    ano: 2021,
     portas: 4,
     acelerar: () => "Carro acelerando",
 }
@@ -26,6 +27,15 @@ const minhaMoto: Moto = {
     cilindradas: 500,
     acelerar: () => "A moto está acelerando!"
 };
+
+const outraMoto: Moto = {
+    marca: "Yamaha",
+    modelo: "MT-07",
+    ano: 2022,
+    cilindradas: 700,
+    acelerar: () => "A Yamaha MT-07 está acelerando!"
+};
+
 console.log("Carro:", meuCarro);
 console.log(meuCarro.acelerar());
 console.log("Moto:", minhaMoto);
@@ -52,3 +62,20 @@ estoqueVeiculo.adicionarEstoque(meuCarro.modelo, 2);
 estoqueVeiculo.removerEstoque(outroCarro.modelo, 1)
 
 estoqueVeiculo.consultarEstoque(outroCarro.modelo);
+
+// Exercício 3
+const listaVeiculos = [meuCarro, meuCarro, outroCarro, minhaMoto, outraMoto];
+
+const filtraVeiculos = new FiltraVeiculos();
+
+const filtroAno = filtraVeiculos.filtrarPorAno(listaVeiculos, 2021);
+console.log("Filtro por Ano(2021): ");
+console.log(filtroAno);
+
+const filtroMarca = filtraVeiculos.filtrarPorMarca(listaVeiculos, "Honda");
+console.log("\nFiltro por Marca('Honda'): ");
+console.log(filtroMarca);
+
+const filtroModelo = filtraVeiculos.filtrarPorModelo(listaVeiculos, "Corolla");
+console.log("\nFiltro por Modelo('Corolla'): ");
+console.log(filtroModelo);
