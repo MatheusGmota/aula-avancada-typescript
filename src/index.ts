@@ -1,3 +1,4 @@
+import { EstoqueVeiculos } from './classes/EstoqueVeiculos';
 import { GerenciadorVeiculos } from "./classes/GerenciadorVeiculos";
 import { Carro } from "./interfaces/Carro";
 import { Moto } from "./interfaces/Moto";
@@ -41,3 +42,13 @@ gerenciadorVeiculo.listarVeiculos();
 gerenciadorVeiculo.remover(outroCarro);
 
 gerenciadorVeiculo.listarVeiculos();
+
+// Exercício 2
+const estoqueVeiculo = new EstoqueVeiculos<Carro>();
+
+estoqueVeiculo.adicionarEstoque(outroCarro.modelo, 5);
+estoqueVeiculo.adicionarEstoque(meuCarro.modelo, 2);
+
+estoqueVeiculo.removerEstoque(outroCarro.modelo, 1)
+
+estoqueVeiculo.consultarEstoque(outroCarro.modelo);
