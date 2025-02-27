@@ -3,6 +3,7 @@ import { GerenciadorVeiculos } from "./classes/GerenciadorVeiculos";
 import { Carro } from "./interfaces/Carro";
 import { Moto } from "./interfaces/Moto";
 import { FiltraVeiculos } from './utils/FiltrarVeiculos';
+import { RelatorioVeiculos } from './utils/RelatorioVeiculos';
 
 const meuCarro: Carro = {
     marca: "Honda",
@@ -35,7 +36,6 @@ const outraMoto: Moto = {
     cilindradas: 700,
     acelerar: () => "A Yamaha MT-07 está acelerando!"
 };
-
 console.log("Carro:", meuCarro);
 console.log(meuCarro.acelerar());
 console.log("Moto:", minhaMoto);
@@ -79,3 +79,9 @@ console.log(filtroMarca);
 const filtroModelo = filtraVeiculos.filtrarPorModelo(listaVeiculos, "Corolla");
 console.log("\nFiltro por Modelo('Corolla'): ");
 console.log(filtroModelo);
+
+// Exercicio 4
+const relatorioVeiculo = new RelatorioVeiculos();
+
+const relatorio = relatorioVeiculo.gerarRelatorio(listaVeiculos);
+console.log(relatorio);
